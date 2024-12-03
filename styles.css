@@ -1,0 +1,270 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    color: black;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+	background-image: url("Filtre.JPG");
+	background-size: cover;
+	font-weight: bold;
+	text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 70, 139, 0.8);
+    color: ;
+}
+
+.header .logo h1 {
+    font-size: 1.5rem;
+	color: #fff;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar li {
+    margin-left: 2rem;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Banner Section */
+/* Applique une image de fond uniquement à la section #home */
+#home {
+    background-image: url('Pure.png'); /* Remplacez avec le chemin de votre image */
+    background-size: cover;          /* Couvre toute la section */
+    background-position: center;     /* Centre l'image */
+    background-repeat: no-repeat;    /* Évite la répétition de l'image */
+    color: white;                    /* Assurez-vous que le texte est visible sur l'image */
+    padding: 170px 20px;             /* Ajustez l'espacement intérieur si nécessaire */
+}
+#Catalogues {
+    background-image: url('Commentaires.jpg'); /* Remplacez avec le chemin de votre image */
+    background-size: cover;          /* Couvre toute la section */
+    background-position: center;     /* Centre l'image */
+    background-repeat: no-repeat;    /* Évite la répétition de l'image */
+    color: black;                    /* Assurez-vous que le texte est visible sur l'image */
+    padding: 170px 20px;             /* Ajustez l'espacement intérieur si nécessaire */
+}
+
+#section-unique {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Vidéo en arrière-plan */
+#section-unique video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Couvre toute la section */
+    transform: translate(-50%, -50%);
+    filter: brightness(60%); /* Assombrit légèrement la vidéo */
+}
+
+/* Overlay pour ajouter du contenu sur la vidéo */
+#section-unique .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Style du texte superposé */
+#section-unique .overlay h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Effet de flou sur les bords */
+#section-unique::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+    z-index: 0;
+}
+
+section {
+    background-color: rgba(255, 255, 255, 0.4);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, );
+}
+
+.banner {
+    text-align: center;
+    padding: 3rem;
+    background: url('path/to/banner-image.jpg') no-repeat center/cover;
+    color: #fff;
+}
+
+.banner h2 {
+    font-size: 2.5rem;
+    font-size: 2rem; /* Ajustez selon vos besoins */
+    font-weight: bold;
+    color: wh;
+    background: linear-gradient(45deg, #00468B, #007BFF);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin: 2rem 0;
+    text-transform: uppercase;
+    animation: glow 2s ease-in-out infinite alternate;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+.banner button {
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.banner button:hover {
+    background-color: #0056b3;
+}
+
+/* Product Catalog */
+.section {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.product-list {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.product {
+    background-color: rgba(172, 227, 245, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product h3 {
+    color: #00468B;
+    margin: 0.5rem 0;
+}
+
+.product button {
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color:rgba(0, 70, 139, 0.8);
+    color: #fff;
+    text-align: left;
+    padding: 2rem 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: black;
+}
+
+.footer-content p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.footer-content a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: #007BFF;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #0056b3;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Panier - Purifiez Votre Eau</title>
+    <link rel="stylesheet" href="Panier.css">
+</head>
+<body>
+    <header>
+        <h1>Votre Panier</h1>
+        <nav>
+            <a href="projet.html">Accueil</a>
+            <a href="Catalogues.html">Nos Produits</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="cart">
+        <ul class="cart-items" id="cart-items"></ul>
+        <h3 class="total">Sous-total : €<span id="cart-total">0.00</span></h3>
+        <h3 class="tax">TVA (20%) : €<span id="tax-amount">0.00</span></h3>
+        <h2 class="total">Total : €<span id="final-total">0.00</span></h2>
+        <button onclick="clearCart()">Vider le panier</button>
+        <br><br>
+        <a href="Catalogues.html">Retour aux produits</a>
+    </div>
+
+    <!-- Section Paiement sécurisé -->
+    <section id="payment-section">
+        <h2>Paiement Sécurisé</h2>
+        <form id="payment-form">
+            <label for="card-number">Numéro de carte :</label>
+            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required maxlength="19">
+            
+            <label for="card-expiry">Date d'expiration :</label>
+            <input type="text" id="card-expiry" placeholder="MM/AA" required maxlength="5">
+            
+            <label for="card-cvc">CVC :</label>
+            <input type="text" id="card-cvc" placeholder="123" required maxlength="3">
+            
+            <button type="submit">Payer maintenant</button>
+        </form>
+    </section>
+
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalContainer = document.getElementById('cart-total');
+            const taxAmountContainer = document.getElementById('tax-amount');
+            const finalTotalContainer = document.getElementById('final-total');
+            let total = 0;
+
+            cartItemsContainer.innerHTML = ''; // Vider l'affichage précédent
+
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.className = "cart-item";
+                listItem.innerHTML = `<img src="${item.image}" alt="${item.name}" style="width:50px;"> ${item.name} - €${item.price.toFixed(2)}`;
+                cartItemsContainer.appendChild(listItem);
+                total += item.price;
+            });
+
+            const tax = total * 0.20;
+            const finalTotal = total + tax;
+
+            cartTotalContainer.textContent = total.toFixed(2);
+            taxAmountContainer.textContent = tax.toFixed(2);
+            finalTotalContainer.textContent = finalTotal.toFixed(2);
+        }
+
+        function clearCart() {
+            if (confirm("Êtes-vous sûr de vouloir vider le panier ?")) {
+                localStorage.removeItem('cart');
+                loadCart();
+            }
+        }
+
+        // Traitement du paiement
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Validation des champs
+            const cardNumber = document.getElementById('card-number').value;
+            const cardExpiry = document.getElementById('card-expiry').value;
+            const cardCvc = document.getElementById('card-cvc').value;
+
+            if (validatePayment(cardNumber, cardExpiry, cardCvc)) {
+                alert('Paiement effectué avec succès !');
+                localStorage.removeItem('cart');  // Vider le panier après paiement
+                loadCart();
+            } else {
+                alert('Veuillez vérifier les informations de la carte.');
+            }
+        });
+
+        function validatePayment(number, expiry, cvc) {
+            const cardNumberRegex = /^\d{16}$/;
+            const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            const cvcRegex = /^\d{3}$/;
+
+            return cardNumberRegex.test(number.replace(/\s+/g, '')) && 
+                   expiryRegex.test(expiry) && 
+                   cvcRegex.test(cvc);
+        }
+
+        window.onload = loadCart;
+    </script>
+</body>
+</html>

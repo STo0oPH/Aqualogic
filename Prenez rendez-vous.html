@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planifiez votre Rendez-vous</title>
+    <link rel="stylesheet" href="Contact.css"> <!-- Lien vers le fichier CSS pour le style -->
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <h1>Planifiez votre Rendez-vous</h1>
+        <nav>
+            <a href="projet.html">Accueil</a>
+            <a href="Catalogues.html">Nos Produits</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <section id="contact">
+        <h2>Planifiez votre Rendez-vous</h2>
+        <p>Laissez-nous vous aider à trouver la solution qui vous convient.</p>
+        <form id="scheduler-form" method="POST">
+            <!-- Informations personnelles -->
+            <section class="form-section">
+                <h2>Informations Personnelles</h2>
+                <label for="name">Nom Complet :</label>
+                <input type="text" id="name" name="name" placeholder="Entrez votre nom complet" required>
+                
+                <label for="email">Adresse Email :</label>
+                <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+                
+                <label for="phone">Numéro de Téléphone :</label>
+                <input type="tel" id="phone" name="phone" placeholder="Entrez votre numéro de téléphone" required>
+            </section>
+
+            <!-- Détails du rendez-vous -->
+            <section class="form-section">
+                <h2>Détails du Rendez-vous</h2>
+                <label for="service">Service demandé :</label>
+                <select id="service" name="service" required>
+                    <option value="" disabled selected>Sélectionnez un service</option>
+                    <option value="water-test">Test de l’eau gratuit</option>
+                    <option value="equipment-maintenance">Entretien des équipements</option>
+                    <option value="installation">Services d’installation</option>
+                </select>
+
+                <label for="date">Date Préférée :</label>
+                <input type="date" id="date" name="date" required>
+                
+                <label for="time">Heure Préférée :</label>
+                <input type="time" id="time" name="time" required>
+            </section>
+
+            <!-- Commentaires supplémentaires -->
+            <section class="form-section">
+                <h2>Commentaires Supplémentaires</h2>
+                <textarea id="comments" name="comments" placeholder="Ajoutez des détails ou des questions spécifiques ici..."></textarea>
+            </section>
+			
+	<section id="informations">
+        <h3>Nos Coordonnées</h3>
+        <p><strong>Adresse :</strong> Tellila, Agadir, Maroc</p>
+        <p><strong>Téléphone :</strong> +212 5 01 02 03 04</p>
+        <p><strong>Email :</strong> PurifiezVotreEau@gmail.com</p>
+    </section>
+
+            <!-- Bouton de soumission -->
+            <button type="submit">Soumettre</button>
+        </form>
+    </main>
+    <script src="script.js"></script>
+  </section>
+</body>
+  <footer>
+        <p>&copy; 2024 Purifiez votre eau. Tous droits réservés.</p>
+    </footer>
+</html>

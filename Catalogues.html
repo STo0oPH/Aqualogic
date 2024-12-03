@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits - Filtres d'Eau</title>
+	<link rel="stylesheet" href="Catalogues.css">
+	<script src="Produits.js"></script>
+
+</head>
+<body>
+
+<header>
+<header>
+        <h1>Filtres d'Eau</h1>
+        <nav>
+            <a href="projet.html">Accueil</a>
+            <a href="Catalogues.html">Nos Produits</a>
+            <a href="contact.html">Contact</a>
+			<a href="panier.html" class="cart-link">Voir le panier</a>
+        </nav>
+    </header>
+    <h1>Produits - Filtres d'Eau</h1>
+    <p>Découvrez nos filtres d'eau de haute qualité</p>
+</header>
+<div class="container">
+    <!-- Carte Produit 1 -->
+    <div class="product-card">
+        <img src="Livraison.jpg" alt="Livraison et distributeurs d’eau">
+        <h2 class="product-title">Livraison et distributeurs d’eau</h2>
+        <p class="product-price">100 DH</p>
+        <p class="product-description">Planifiez des livraisons d’eau pour votre maison ou votre bureau.</p>
+		 <button onclick="addToCart('Filtre d\'eau Aqualine', 249)">Ajouter au panier</button>
+    </div>
+    
+    <!-- Carte Produit 2 -->
+    <div class="product-card">
+        <img src="Adoucissement.jpg" alt="Adoucissement de l’eau">
+        <h2 class="product-title">Adoucissement de l’eau</h2>
+        <p class="product-price">750 DH</p>
+        <p class="product-description">Profitez d’une peau plus douce, d’une vaisselle plus propre et plus encore..</p>
+      <button onclick="addToCart('Filtre d\'eau PureLife', 75)">Ajouter au panier</button>
+		
+    </div>
+    
+    <!-- Carte Produit 3 -->
+    <div class="product-card">
+        <img src="Osmose inverse.jpg" alt="Osmose inverse">
+        <h2 class="product-title">Osmose inverse</h2>
+        <p class="product-price">600 DH</p>
+        <p class="product-description">Sirotez une eau plus propre, plus sûre et au goût délicieux.</p>
+       <button onclick="addToCart('Filtre d\'eau EcoPure', 60)">Ajouter au panier</button>
+    </div>
+	
+	<div class="product-card">
+        <img src="Glacières sans bouteille.jpg" alt="Glacières sans bouteille">
+        <h2 class="product-title">Glacières sans bouteille</h2>
+        <p class="product-price">750 DH</p>
+        <p class="product-description">Accédez à de l’eau plus propre et filtrée sans tracas.</p>
+        <button onclick="addToCart('Filtre de robinet', 7.5)">Ajouter au panier</button>
+    </div>
+	
+	<div class="product-card">
+        <img src="Puits.jpg" alt="Solutions pour l’eau de puits">
+        <h2 class="product-title">Solutions pour l’eau de puits</h2>
+        <p class="product-price">950 DH</p>
+        <p class="product-description">Ciblez les problèmes courants liés à l’eau de puits.</p>
+        <button onclick="addToCart('Filtre de robinet', 9.5)">Ajouter au panier</button>
+		
+    </div>
+	<div class="product-card">
+        <img src="Filtration dans toute la maison.jpg" alt="Filtration dans toute la maison">
+        <h2 class="product-title">Filtres à ionisation</h2>
+        <p class="product-price">600 DH</p>
+        <p class="product-description">Solution écologique et économique pour de l'eau propre.</p>
+        <button onclick="addToCart('Filtre de robinet', 60)">Ajouter au panier</button>
+    </div>
+</div>
+<script>
+        function addToCart(productName, productPrice) {
+            // Récupérer le panier actuel depuis le localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Ajouter le nouveau produit au panier
+            cart.push({ name: productName, price: productPrice });
+
+            // Sauvegarder le panier mis à jour dans le localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            alert(productName + " a été ajouté au panier!");
+        }
+    </script>
+
+</body>
+</html>

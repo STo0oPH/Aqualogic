@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous - Purifiez Votre Eau</title>
+    <link rel="stylesheet" href="Contact.css"> <!-- Lien vers le fichier CSS pour le style -->
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <h1>Purifiez Votre Eau</h1>
+        <nav>
+            <a href="projet.html">Accueil</a>
+            <a href="Catalogues.html">Nos Produits</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Section de Contact -->
+    <section id="contact">
+        <h2>Contactez-nous</h2>
+        <p>Vous avez des questions sur nos filtres d'eau ? Remplissez le formulaire ci-dessous, et nous vous répondrons dans les plus brefs délais.</p>
+
+        <form action="traitement_formulaire.php" method="POST">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telephone">Téléphone :</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="Ex : +212 6 00 00 00 00">
+
+            <label for="sujet">Sujet :</label>
+            <input type="text" id="sujet" name="sujet" required>
+
+            <label for="message">Message :</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <!-- Informations de Contact -->
+    <section id="informations">
+        <h3>Nos Coordonnées</h3>
+        <p><strong>Adresse :</strong> Tellila, Agadir, Maroc</p>
+        <p><strong>Téléphone :</strong> +212 5 01 02 03 04</p>
+        <p><strong>Email :</strong> PurifiezVotreEau@gmail.com</p>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Purifiez votre eau. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
