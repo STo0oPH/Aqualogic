@@ -3,15 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtres d'Eau - Purifiez votre Eau</title>
+    <title>AQUALOGIC - Purifiez votre Eau</title>
     <link rel="stylesheet" href="styles.css">
-	<script src="java.js"></script>
+    <script>
+        // JavaScript for handling cookies
+        document.addEventListener("DOMContentLoaded", () => {
+            const cookieBanner = document.getElementById("cookie-banner");
+            const acceptCookies = document.getElementById("accept-cookies");
+
+            // Check if the cookies have already been accepted
+            if (!localStorage.getItem("cookiesAccepted")) {
+                cookieBanner.style.display = "block";
+            }
+
+            // Handle click on "Accept"
+            acceptCookies.addEventListener("click", () => {
+                localStorage.setItem("cookiesAccepted", "true");
+                cookieBanner.style.display = "none";
+            });
+        });
+    </script>
+    <style>
+        /* Cookie Banner Styles */
+        #cookie-banner {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            z-index: 1000;
+        }
+        #cookie-banner button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #cookie-banner button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <!-- Header with Navigation -->
     <header class="header">
         <div class="logo">
-            <h1>Purifiez votre eau</h1>
+            <img src="image.png" alt="Aqualogic Logo" class="logo-img">
+            <h1>Aqualogic : Purifiez votre eau</h1>
         </div>
         <nav class="navbar">
             <ul>
@@ -21,63 +66,179 @@
                 <li><a href="#solutions">Solutions Entreprises</a></li>
                 <li><a href="Contact.html">Contactez-nous</a></li>
                 <li><a href="Prenez rendez-vous.html">Prenez rendez-vous</a></li>
-				<li><a href="Panier.html">Panier</a></li>
-					<span class="cart-icon">🛒</span>
-				 
+                <li><a href="Panier.html">
+Panier</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Banner Section -->
-  <section id="home" class="banner" style="background-image: url('Pure.jpg'); background-size: cover; background-position: center;">
-    <h2 style="color: white;">Découvrez des solutions de filtration d'eau adaptées à vos besoins</h2>
-    <p>Prenez votre rendez-vous<br>
-        <a href="Prenez rendez-vous.html" style="color: white; text-decoration: underline; font-weight: bold;">
-            Cliquez ici pour prendre un rendez-vous
+    <section id="home" class="banner" style="background-image: url('Pure.jpg'); background-size: cover; background-position: center;">
+        <h2 style="color: white;">Découvrez des solutions de filtration d'eau adaptées à vos besoins</h2>
+        <p style="margin: 20px 0; color: white;">Pensez à votre santé et à votre bien-être</p>
+        <a href="Prenez rendez-vous.html" class="consultation-button">
+            Cliquez ici pour prendre un rendez-vous →
         </a>
-    </p>
-</section>
-
+    </section>
 
     <!-- Nouvelle section pour la description du projet -->
-   <section id="section-unique">
-    <video width="640" height="360" controls>
-        <source src="AD ved.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas la balise vidéo.
-    </video>
-</section>
-
+    <section id="section-unique">
+        <video width="900" height="600" controls>
+            <source src="AD ved.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la balise vidéo.
+        </video>
+    </section>
 
     <!-- Product Catalog -->
-      <section id="Catalogues" class="banner" style="background-image: url('Commentaires.jpg'); background-size: cover; background-position: center;">
- 
- </section>
-
-    <!-- Advice and Guides -->
-    <section id="guides" class="section advice-guides">
-        <h2>Conseils et Guides</h2>
-        <p>Apprenez à choisir le bon filtre pour vos besoins spécifiques.</p>
-        <p><a href="Solutions pour Entreprises.pdf" download><button>Lire nos Conseils</button></a></p>       
+    <section id="Catalogues" class="banner" style="background-image: url('Commentaires.jpg'); background-size: cover; background-position: center;">
     </section>
+
+  </section>
+<style>
+/* Container for side-by-side sections */
+.sections-container {
+    display: flex; /* Utilise flexbox pour un alignement horizontal */
+    justify-content: space-around; /* Espace égal entre les sections */
+    align-items: flex-start; /* Aligne les sections en haut */
+    padding: 20px;
+    gap: 20px; /* Espace entre les sections */
+}
+
+/* Style commun pour les sections */
+.section {
+    background-color: #f9f9f9; /* Couleur de fond légèrement grise */
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%; /* Réduit la largeur des sections */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Bouton stylisé */
+.custom-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #007BFF; /* Bleu vif */
+    color: white;
+font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #0056b3; /* Bleu foncé au survol */
+    transform: scale(1.05); /* Léger agrandissement au survol */
+}
+
+</style>
+
+
+<section class="sections-container">
+    <!-- Advice and Guides -->
+    <div class="section advice-guides">
+        <h2 style="color: #004080;">Conseils et Guides</h2>
+        <p style="color: #004080;">Apprenez à choisir le bon filtre pour vos besoins spécifiques.</p>
+        <p>
+            <a href="Solutions pour Entreprises.pdf" download class="custom-button" style="color: #004080;">
+  Lire nos Conseils →
+            </a>
+        </p>
+    </div>
 
     <!-- Solutions for Businesses -->
-    <section id="solutions" class="section solutions">
-        <h2>Solutions pour Entreprises</h2>
-        <p>Des solutions personnalisées pour les petites entreprises, restaurants et autres.</p>
-        <p><a href="Guide pour Choisir le Bon Filtre d'eau.pdf" download><button>En savoir plus</button></a></p>
-    </section>
-	
+    <div class="section solutions">
+        <h2 style="color: #004080;">Solutions pour Entreprises</h2>
+        <p style="color: #004080;">Des solutions personnalisées pour les petites entreprises, restaurants et autres.</p>
+        <p>
+            <a href="Guide pour Choisir le Bon Filtre d'eau.pdf" download class="custom-button" style="color: #004080;">
+                En savoir plus →
+            </a>
+        </p>
+    </div>
+</section>
+    <!-- Footer -->
     <footer class="footer">
-    <div class="footer-content">
-        <h3>Contactez-nous</h3>
-        <p>Adresse :Tellila, Agadir, Maroc</p>
-        <p>Téléphone : +212 5 01 02 03 04</p>
-        <p>Email : <a href="mailto:contact@exemple.com"> PurifiezVotreEau@gmail.com</a></p>
+        <div class="footer-container">
+            <!-- Footer Content -->
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner">
+        <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant, vous acceptez l'utilisation des cookies.</p>
+        <button id="accept-cookies">Accepter</button>
+    </div>
+</body>
+</html>
+
+    <footer class="footer">
+    <div class="footer-container">
+<link rel="stylesheet" href="footer.css">
+        <!-- Première ligne -->
+        <div class="footer-row">
+            <div class="footer-column">
+                <h3>Garantie de Satisfaction à 100%</h3>
+                <p>
+                    Si vous n'êtes pas satisfait de votre produit pour quelque raison que ce soit dans les 30 jours suivant votre achat, nous retirerons le produit et rembourserons le prix d'achat.*
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3>Planifiez une Consultation Gratuite</h3>
+                <p>Nos experts sont prêts à vous aider à trouver la solution adaptée à vos problèmes d'eau.</p>
+                <button class="get-started-button">Commencer</button>
+            </div>
+        </div>
         
-        <div class="social-links">
-            <a href="https://facebook.com" target="_blank">Facebook</a>
-            <a href="https://twitter.com" target="_blank">Twitter</a>
-            <a href="https://instagram.com" target="_blank">Instagram</a>
+        <!-- Deuxième ligne -->
+        <div class="footer-row">
+            <div class="footer-column">
+                <h3>À Propos</h3>
+                <ul>
+                    <li><a href="#">Notre Entreprise</a></li>
+                    <li><a href="#">À Propos de Nous</a></li>
+                    <li><a href="#">Actualités</a></li>
+                    <li><a href="#">Engagement Social</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Rejoignez-Nous</h3>
+                <ul>
+                    <li><a href="#">Carrières</a></li>
+                    <li><a href="#">Franchise</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contactez-Nous</h3>
+                <ul>
+                    <li><a href="#">+212 5 01 02 03 04</a></li>
+                    <li><a href="#">Nous Contacter</a></li>
+                    <li><a href="#">Trouver une Agence</a></li>
+                    <li><a href="#">Emplacements Mondiaux</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Troisième ligne -->
+        <div class="footer-row social-media">
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">YouTube</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+
+        <!-- Quatrième ligne -->
+        <div class="footer-row">
+            <p>Copyright © 2024 Purifiez Votre Eau</p>
+            <ul class="footer-links">
+                <li><a href="#">Conditions Générales</a></li>
+                <li><a href="#">Confidentialité</a></li>
+                <li><a href="#">Plan du Site</a></li>
+            </ul>
         </div>
     </div>
 </footer>

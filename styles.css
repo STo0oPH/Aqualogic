@@ -61,7 +61,20 @@ body {
     background-repeat: no-repeat;    /* Évite la répétition de l'image */
     color: white;                    /* Assurez-vous que le texte est visible sur l'image */
     padding: 170px 20px;             /* Ajustez l'espacement intérieur si nécessaire */
+/* Style pour le bouton de consultation */
+.consultation-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #007BFF; /* Bleu lumineux */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 #Catalogues {
     background-image: url('Commentaires.jpg'); /* Remplacez avec le chemin de votre image */
     background-size: cover;          /* Couvre toute la section */
@@ -221,6 +234,43 @@ section {
 .product button:hover {
     background-color: #0056b3;
 }
+/* Container for side-by-side sections */
+.sections-container {
+    display: flex; /* Utilise flexbox pour un alignement horizontal */
+    justify-content: space-around; /* Espace égal entre les sections */
+    align-items: flex-start; /* Aligne les sections en haut */
+    padding: 20px;
+    gap: 20px; /* Espace entre les sections */
+}
+
+/* Style commun pour les sections */
+.section {
+    background-color: #f9f9f9; /* Couleur de fond légèrement grise */
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%; /* Réduit la largeur des sections */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Bouton stylisé */
+.custom-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #007BFF; /* Bleu vif */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #0056b3; /* Bleu foncé au survol */
+    transform: scale(1.05); /* Léger agrandissement au survol */
+}
+
 
 /* Footer */
 footer {

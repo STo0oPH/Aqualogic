@@ -5,6 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Votre Panier - Purifiez Votre Eau</title>
     <link rel="stylesheet" href="Panier.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .cart {
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+        .cart ul {
+            list-style: none;
+            padding: 0;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .cart-item img {
+            width: 50px;
+            margin-right: 10px;
+        }
+        button {
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #002050;
+        }
+        #payment-section {
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,18 +63,34 @@
         </nav>
     </header>
 
+    <!-- Liste des produits -->
+    <section id="product-list">
+ <section id="product-list" style="text-align: center; margin: 20px auto;">
+    <h2>Nos Produits</h2>
+    <div style="margin: 10px 0;">
+        <button onclick="addToCart('Filtre Aqualine', 249)">Ajouter Filtre Aqualine - DH249</button>
+    </div>
+    <div style="margin: 10px 0;">
+        <button onclick="addToCart('Filtre PureWater', 399)">Ajouter Filtre PureWater - DH399</button>
+    </div>
+    <div style="margin: 10px 0;">
+        <button onclick="addToCart('Filtre EcoFlow', 199)">Ajouter Filtre EcoFlow - DH199</button>
+    </div>
+</section>
+
+
+    <!-- Panier -->
     <div class="cart">
+        <h2>Votre Panier</h2>
         <ul class="cart-items" id="cart-items"></ul>
-        <h3 class="total">Sous-total : €<span id="cart-total">0.00</span></h3>
-        <h3 class="tax">TVA (20%) : €<span id="tax-amount">0.00</span></h3>
-        <h2 class="total">Total : €<span id="final-total">0.00</span></h2>
+        <h3>Sous-total : DH<span id="cart-total">0.00</span></h3>
+        <h3>TVA (20%) : DH<span id="tax-amount">0.00</span></h3>
+        <h2>Total : DH<span id="final-total">0.00</span></h2>
         <button onclick="clearCart()">Vider le panier</button>
-        <br><br>
-        <a href="Catalogues.html">Retour aux produits</a>
     </div>
 
-    <!-- Section Paiement sécurisé -->
-    <section id="payment-section">
+    <!-- Paiement -->
+<section id="payment-section" style="text-align: center; margin-top: 20px;">
         <h2>Paiement Sécurisé</h2>
         <form id="payment-form">
             <label for="card-number">Numéro de carte :</label>
@@ -57,7 +120,12 @@
             cart.forEach(item => {
                 const listItem = document.createElement('li');
                 listItem.className = "cart-item";
-                listItem.innerHTML = `<img src="${item.image}" alt="${item.name}" style="width:50px;"> ${item.name} - €${item.price.toFixed(2)}`;
+                listItem.innerHTML = `
+                    <span>
+                        <img src="placeholder.png" alt="${item.name}"> 
+                        ${item.name}
+                    </span>
+                    <span>DH${item.price.toFixed(2)}</span>`;
                 cartItemsContainer.appendChild(listItem);
                 total += item.price;
             });
@@ -70,6 +138,13 @@
             finalTotalContainer.textContent = finalTotal.toFixed(2);
         }
 
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
         function clearCart() {
             if (confirm("Êtes-vous sûr de vouloir vider le panier ?")) {
                 localStorage.removeItem('cart');
@@ -77,32 +152,12 @@
             }
         }
 
-        // Traitement du paiement
         document.getElementById('payment-form').addEventListener('submit', function(event) {
             event.preventDefault();
-            // Validation des champs
-            const cardNumber = document.getElementById('card-number').value;
-            const cardExpiry = document.getElementById('card-expiry').value;
-            const cardCvc = document.getElementById('card-cvc').value;
-
-            if (validatePayment(cardNumber, cardExpiry, cardCvc)) {
-                alert('Paiement effectué avec succès !');
-                localStorage.removeItem('cart');  // Vider le panier après paiement
-                loadCart();
-            } else {
-                alert('Veuillez vérifier les informations de la carte.');
-            }
+            alert('Paiement effectué avec succès !');
+            localStorage.removeItem('cart'); // Vider le panier après paiement
+            loadCart();
         });
-
-        function validatePayment(number, expiry, cvc) {
-            const cardNumberRegex = /^\d{16}$/;
-            const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
-            const cvcRegex = /^\d{3}$/;
-
-            return cardNumberRegex.test(number.replace(/\s+/g, '')) && 
-                   expiryRegex.test(expiry) && 
-                   cvcRegex.test(cvc);
-        }
 
         window.onload = loadCart;
     </script>
